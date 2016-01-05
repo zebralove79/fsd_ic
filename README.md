@@ -1,6 +1,6 @@
 # Project 3 - Item Catalogue
 
-This repository contains course work for the Udacity course Full Stack Web Development. It is for the third assignment, the implementation of an item catalogue.
+This repository contains course work for the Udacity course Full Stack Web Developer. It is for the third assignment, the implementation of an item catalogue.
 
 The code was written by [Moritz Hellwig](http://blog.zebralove79.com). Some parts of the code have come from Udacity and other sources; these are acknowledged in the documentation as well as in the acknowledgements section below.
 
@@ -24,7 +24,7 @@ For the Google+ signin functionality you will have to
 Once set up
 * Run application.py
 
-Then you an access the item catalogue at http://localhost:5000
+Then you can access the item catalogue at http://localhost:5000
 
 ## Requirements
 
