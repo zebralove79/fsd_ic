@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+{% extends "main_cat_item_list.html" %}
+{% block items %}
+
+<h2 class="item-head">Delete item</h2>
+
+<form class="form" role="form" method="post">
+	Are you sure you want to delete item "{{ item.name }}"? This action cannot be undone.
+	<div class="checkbox">
+		<label>
+			<input name="delete" required type="checkbox">Yes, I want to delete "{{ item.name }}""
+		</label>
+	</div>
+	<input name="_csrf_token" type=hidden value="{{ csrf_token }}">
+	<button type="submit" class="btn btn-default">Delete</button>
+</form>
+
+{% endblock %}

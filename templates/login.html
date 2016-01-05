@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+{% extends 'index.html' %}
+{% block main_area %}
+
+<div class="row">
+    <div class="login-menu">
+        <h2 class="login-head text-center">Login with Google Plus
+            <div id="signinButton">
+                <span class="g-signin"
+                data-scope="openid email"
+                {# Provide you own Google+ client id #}
+                data-clientid=""
+                data-redirecturi="postmessage"
+                data-accesstype="offline"
+                data-cookiepolicy="single_host_origin"
+                data-callback="signInCallback"
+                data-approvalprompt="force">
+                </span>
+            </div>
+        </h2>
+    </div>
+</div>
+
+{% endblock %}

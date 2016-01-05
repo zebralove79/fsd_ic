@@ -1,0 +1,144 @@
+h1 {
+    font-size: 18px;
+    margin: 20px 0 0 0;
+}
+
+h1 a {
+    color: #111111;
+    font-weight: bolder;
+}
+
+h1 a:hover {
+    color: #111111;
+    text-decoration: none;
+}
+
+.row-menu {
+    margin: 0 -7px 0 -7px;
+}
+
+.cat-head, .items-head, .item-head, .login-head {
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 0 10px 8px;
+    margin: 15px 0 0 0;
+    color: #F1F1F1;
+}
+
+.cat-head, .login-head {
+    background-color: #002F2F;
+}
+
+.items-head, .item-head {
+    background-color: #046380;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+li a {
+    text-decoration: none;
+    display: block;
+    height: 40px;
+    padding: 10px 0 10px 8px;
+}
+
+li {
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+li a:hover {
+    text-decoration: none;
+}
+
+li.cat-entry a {
+    color: #002F2F;
+    background-color: #F1F1F1;
+}
+
+li.cat-entry a:hover {
+    background-color: #002F2F;
+    color: #F1F1F1;
+}
+
+li.items-entry a {
+    color: #046380;
+    background-color: #F1F1F1;
+}
+
+li.items-entry a:hover {
+    background-color: #046380;
+    color: #F1F1F1;
+}
+
+.user-action a {
+    color: #F1F1F1;
+    font-size: 12px;
+}
+
+.user-action {
+    color: #F1F1F1;
+    font-size: 12px;
+}
+
+.user {
+    margin: 10px 0 0 0;
+}
+
+#signinButton {
+    margin-top: 15px;
+}
+
+.login {
+    padding: 10px 0 0 0;
+}
+
+.item-description, .no-items {
+    padding: 10px 8px 10px;
+    margin-bottom: 10px;
+    color: #046380;
+    text-align: center;
+}
+
+.img {
+    margin: 0 auto;
+}
+
+.control-label {
+    padding-top: 5px;
+}
+
+.upload {
+    margin-top: 5px;
+}
+
+.form {
+    padding: 8px 10px 8px 10px;
+    background-color: #F1F1F1;
+}
+
+ul#flashes {
+    position: relative;
+    font-size: 14px;
+    background: #00A388;
+    top: 0px;
+    border-radius: 4px;
+    color: #F1F1F1;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    width: 50%;
+    margin: 0 auto;
+}
+
+#flash-box {
+    margin-top: 8px;
+}
+
+.items {
+    padding-bottom: 10px;
+}

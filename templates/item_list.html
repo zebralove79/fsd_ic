@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+{% extends "main_cat_item_list.html" %}
+{% block items %}
+
+<h2 class="items-head">Items
+    {% if session.logged_in %}
+    <small class="user-action">
+        <a href="{{ url_for('create_item') }}">Create new item</a>
+    </small>
+    {% endif %}
+</h2>
+
+<div class="items-list">
+    {% if items %}
+
+    {% for item in items %}
+    <ul class="items-menu">
+        <li class="items-entry">
+            <a href="{{ url_for('item', item_name=item.name, item_id=item.id) }}">{{ item.name }}</a>
+        </li>
+    </ul>
+    {% endfor %}
+
+    {% else %}
+    <div class="no-items">
+        No items found in this category
+    </div>
+    {% endif %}
+</div>
+
+{% endblock %}

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+{% extends "main_cat_item_list.html" %}
+{% block items %}
+
+<h2 class="item-head">Create item</h2>
+
+<form class="form" role=form method=post enctype=multipart/form-data>
+    <div class="form-group">
+        <label for="name" class="control-label">Item name</label>
+        <input name="name" type="text" class="form-control" placeholder="Item name" required>
+    </div>
+    <div class="form-group">
+        <label for="description" class="control-label">Item description</label>
+        <textarea name="description" class="form-control" rows="5" placeholder="Item description" required></textarea>
+    </div>
+    <div class="form-group">
+        <label for="category-id" class="control-label">Category</label>
+        <select name="category-id" class="form-control" required>
+            {% for category in categories %}
+            <option value="{{ category.id }}">{{ category.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="image" class="control-label">Image</label>
+        <input class="upload" type=file name=file>
+    </div>
+    <button type="submit" class="btn btn-default">Save</button>
+</form>
+
+{% endblock %}

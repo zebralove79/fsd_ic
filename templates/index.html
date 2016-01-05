@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Item Catalogue | {{ title }}</title>
+
+    <!-- Bootstrap -->
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="//apis.google.com/js/platform.js?onload=start" async defer></script>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row row-menu">
+            <div class="title col-xs-6">
+                <h1 class="title-head"><a href="{{ url_for('index') }}">Cats &amp; Items</a></h1>
+            </div>
+            <div class="user col-xs-6">
+                {% if session.logged_in %}
+                <span class="pull-right user-info">
+                    <img class="img-circle" src="{{ session.picture }}" height=40 width=40 alt="Profile image">
+                    <a href="{{ url_for('gdisconnect') }}" class="btn btn-default" role="button">Logout</a>
+                </span>
+                {% else %}
+                <span class="pull-right login">
+                    <a href="{{ url_for('login') }}" class="btn btn-default" role="button">Login</a>
+                </span>
+                {% endif %}
+            </div>
+        </div>
+
+        {# main content area #}
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <div class="row" id="flash-box">
+            <ul id="flashes" class="text-center">
+                {% for message in messages %}
+                <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+        {% endwith %}
+
+        {% block main_area %}
+        {% endblock %}
+    </div>
+
+    <script>
+    function signInCallback(authResult) {
+        if (authResult['code']) {
+            // Code mostly provided by Udacity and adapted
+
+            // Hide the sign-in button now that the user is authorized
+            $('#signinButton').attr('style', 'display: none');
+            $('.login-head').text('Logging in. Please wait...')
+
+            // Send the one-time-use code to the server, if the server responds, write a 'login successful' message to the web page and then redirect back to the main restaurants page
+            $.ajax({
+                type: 'POST',
+                url: '/gconnect?state={{ STATE }}',
+                processData: false,
+                data: authResult['code'],
+                contentType: 'application/octet-stream; charset=utf-8',
+                success: function(result) {
+
+                    // Handle or verify the server response if necessary.
+                    if (result) {
+                        setTimeout(function() {
+                            window.location.href = "/";
+                        }, 0);
+
+                    } else if (authResult['error']) {
+                        console.log('There was an error: ' + authResult['error']);
+                        setTimeout(function() {
+                            window.location.href = "/login";
+                        }, 0);
+                    } else {
+                        setTimeout(function() {
+                        window.location.href = "/login";
+                        }, 0);
+                    }
+                }
+            });
+        }
+    }
+
+    // Remove flash messages after 3 seconds
+    setTimeout(function(){
+        $("#flash-box").fadeOut("normal", function() {
+            $(this).remove();
+        });
+    }, 3000);
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+{% extends "main_cat_item_list.html" %}
+{% block items %}
+
+<h2 class="item-head">{{ item.name }}
+
+    {% if session.logged_in %}
+    <small class="user-action">
+        <a href="{{ url_for('edit_item', item_id=item.id, item_name=item.name) }}">Edit</a>
+        |
+        <a href="{{ url_for('delete_item', item_name=item.name, item_id=item.id) }}">Delete</a>
+    </small>
+    {% endif %}
+</h2>
+
+{% if item.image %}
+<div class="item-image">
+    <img class="img-responsive img" src="{{ url_for('static', filename="uploads/images/%s" % item.image) }}" alt="{{ item.name}}">
+</div>
+{% endif %}
+
+<div class="item-description">
+    Description: {{ item.description }}
+</div>
+
+{% endblock %}
+
+
+
